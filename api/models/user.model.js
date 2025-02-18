@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+
+// creating a schema or row in sql
 const userSchema =  new mongoose.Schema({
     user:{
         type: String,
@@ -23,7 +25,7 @@ const userSchema =  new mongoose.Schema({
 },{timestamps:true});
 
 
-///create the model
+///create the model or table in sql
 const User = mongoose.model('User',userSchema)
 
 export default User;
