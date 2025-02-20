@@ -2,7 +2,7 @@
 ////remember you must register all routes to index.js for them to work
 //dont forget to add .js when importing the comntrollers
 import express from 'express'
-import { test } from '../controllers/user.conroller.js';
+import { test } from '../controllers/user.controller.js';
 
 
 

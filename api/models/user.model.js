@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 // creating a schema or row in sql
 const userSchema =  new mongoose.Schema({
-    user:{
+    username:{
         type: String,
         required:true,
         unique: true,
@@ -15,7 +15,7 @@ const userSchema =  new mongoose.Schema({
         unique: true,
         
     },
-    Password:{
+    password:{
         type: String,
         required:true,
     
