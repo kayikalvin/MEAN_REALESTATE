@@ -22,3 +22,14 @@ app.use(express.json()); /// allows us to send json
 
 app.use('/api/user',userRouter);
 app.use('/api/auth', authRouter);
+
+///middleware to handle errors
+app.use((err,req,res,next) => {
+    const statusCode = err.statusCode || 500; // herre we will return the erro that occured in the clients side if not we return status code 500
+    const message = err.message || 'Internal Server Error';
+    return res.status(statusCode).json({
+        succuss:false,
+        statusCode,
+        message,
+    })
+})
