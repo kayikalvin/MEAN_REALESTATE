@@ -13,12 +13,17 @@ mongoose.connect(process.env.MONGO_DB).then(() => {
 
 const app = express();
 
-app.listen(3000,() => { 
-    console.log('Server is running on port 3000 .....') 
-});
 
 ///we get undefined in theserver because we are not allowed to send json by default
 app.use(express.json()); /// allows us to send json
+
+app.listen(3000,() => { 
+    console.log('Server is running on port 3000 .....') 
+});
+app.get('/',(req,res) => {
+    res.send('hello world')
+})
+
 
 app.use('/api/user',userRouter);
 app.use('/api/auth', authRouter);
@@ -31,5 +36,5 @@ app.use((err,req,res,next) => {
         succuss:false,
         statusCode,
         message,
-    })
-})
+    });
+});
