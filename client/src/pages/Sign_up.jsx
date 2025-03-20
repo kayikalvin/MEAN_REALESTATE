@@ -14,7 +14,7 @@ export default function Sign_up() {
     });
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();//prevent the page reload om submit
     try {
       setLoading(true);
       const res = await fetch('/api/auth/signup', {
@@ -33,7 +33,7 @@ export default function Sign_up() {
       }
       setLoading(false);
       setError(null);
-      navigate('/sign-in');
+      navigate('/sign_in');
     } catch (error) {
       setLoading(false);
       setError(error.message);
