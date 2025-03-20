@@ -24,7 +24,6 @@ app.use(cors({
 }));
 
 
-
 ///we get undefined in theserver because we are not allowed to send json by default
 app.use(express.json()); /// allows us to send json
 
