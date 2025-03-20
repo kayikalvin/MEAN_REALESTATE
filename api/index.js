@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'; //used to connect to a database
 import dotenv from 'dotenv';
+import cors from 'cors';
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
 dotenv.config();
@@ -12,6 +13,16 @@ mongoose.connect(process.env.MONGO_DB).then(() => {
 })
 
 const app = express();
+
+// If you set origin: '*', it allows any website to make requests,
+// which is not secure for production.
+app.use(cors({
+    origin: 'http://localhost:5173', // Replace with your React frontend URL
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 
 ///we get undefined in theserver because we are not allowed to send json by default
